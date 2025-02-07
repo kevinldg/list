@@ -18,15 +18,21 @@ public class School {
         this.students.remove(student);
     }
 
-    public void setStudents(List<Student> students) {
-        this.students = students;
-    }
-
     public Student findStudentById(int id) {
         for (Student student : this.students) {
             if (student.getId() == id) {
                 return student;
             }
+        }
+
+        return null;
+    }
+
+    public List<Course> getCoursesFromStudent(int studentId) {
+        Student student = this.findStudentById(studentId);
+
+        if (student != null) {
+            return student.getCourses();
         }
 
         return null;
