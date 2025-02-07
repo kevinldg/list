@@ -1,31 +1,26 @@
 package org.example;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class School {
-    private List<Student> students = new ArrayList<>();
+    Map<Integer, Student> students = new HashMap<>();
 
-    public List<Student> getStudents() {
+    public Map<Integer, Student> getStudents() {
         return students;
     }
 
     public void addStudent(Student student) {
-        this.students.add(student);
+        this.students.put(student.getId(), student);
     }
 
     public void removeStudent(Student student) {
-        this.students.remove(student);
+        this.students.remove(student.getId());
     }
 
     public Student findStudentById(int id) {
-        for (Student student : this.students) {
-            if (student.getId() == id) {
-                return student;
-            }
-        }
-
-        return null;
+        return this.students.get(id);
     }
 
     public List<Course> getCoursesFromStudent(int studentId) {

@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Collection;
 import java.util.List;
 
 public class Main {
@@ -21,7 +22,7 @@ public class Main {
         school.addStudent(erika);
 
         System.out.println("### Students in school ###");
-        List<Student> students = school.getStudents();
+        Collection<Student> students = school.getStudents().values();
         for (Student student : students) {
             System.out.println(student);
         }
